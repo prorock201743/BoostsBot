@@ -5,7 +5,6 @@ import sqlite3
 from datetime import datetime
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import CommandStart
-from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.client.default import DefaultBotProperties
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from dotenv import load_dotenv
@@ -48,8 +47,7 @@ WELCOME_TEXT = (
 )
 
 logging.basicConfig(level=logging.INFO)
-session = AiohttpSession(proxy="socks5://127.0.0.1:10808")
-bot = Bot(token=BOT_TOKEN, session=session, default=DefaultBotProperties(parse_mode="HTML"))
+bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher()
 
 
